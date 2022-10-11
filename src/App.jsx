@@ -5,7 +5,7 @@ import useFetch from './hooks/useFetch';
 
 //components:
 import Loading from './components/Loading';
-
+import Words from './components/Words';
 function App() {
   // Set word for dev environment:
   const word = 'words'.toUpperCase().split('')
@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <main>
         {/* {isLoading? <Loading /> : <h1>{word}</h1>} */}
-        <h1>{word? word : <Loading/>}</h1>
+        <h1>{word? < Words solution={word} /> : <Loading/>}</h1>
       </main>
     </div>
   )
