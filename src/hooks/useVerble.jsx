@@ -11,23 +11,66 @@ const useVerble = (solution) => {
     function letterChoice({key}){
         const alphaRegex = /^[a-z]$/gi;
         if(alphaRegex.test(key) && currentGuess.length<5){
-            setCurrentGuess(prev=> prev+key.toUpperCase())
+            setCurrentGuess(prev=> prev+key.toUpperCase());
         }
         if(key === 'Backspace'){
-            setCurrentGuess(prev=> prev.slice(0,-1))
+            setCurrentGuess(prev=> prev.slice(0,-1));
         }
-        console.log(currentGuess)
+
+        if(key === 'Enter'){
+            if(turn >= 5) {
+                console.log('All guesses used');
+                return;
+            }
+            if(history.includes(currentGuess)){
+                console.log('That guess has already been used');
+                return;
+            }
+            if(currentGuess.length<5){
+                console.log('Guess must be a 5 letter word');
+                return;
+            }
+            formatGuess()
+        }
     }
 
     //adds a new guess to the guesses state
-    function addGuess(){
-
+    function addGuess(guess){
+        console.log('solution ',solution, 'vs guess' , currentGuess)
+        if(currentGuess === solution.join('')){
+            setIsCorrect(true)
+        }
+        else {
+            setGuesses(prev=> {
+                return [...prev, guess]
+            })
+            setTurn(prev=> prev+1);
+            setCurrentGuess('');
+        }
     }
 
     //formats each guess into a collection of letter key value pairs to determine output color etc.
     function formatGuess(){
-    }
+        setHistory(prev=> [...prev, currentGuess])
 
+        let formatGuess = [...currentGuess].map(elem=> ({
+            key: elem,
+            colour: 'grey'
+        }))
+
+        formatGuess.forEach((elem,index)=> {
+            if(solution[index] === elem.key){
+                formatGuess[index].colour = 'green';
+                console.log("it's here, hurrah", elem.key);
+            }
+            else if(solution.includes(elem.key) && elem[index] !== 'green'){
+                formatGuess[index].colour = 'yellow'
+                console.log("close but no cigar", elem.key);
+            }
+        })
+        addGuess(formatGuess);
+        return formatGuess;
+    }
     return { turn, isCorrect, currentGuess, guesses, letterChoice}
 
 }
