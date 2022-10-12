@@ -4,7 +4,7 @@ const useVerble = (solution) => {
     const [turn ,setTurn] = useState(0);
     const [isCorrect ,setIsCorrect] = useState(false);
     const [currentGuess ,setCurrentGuess] = useState('');
-    const [guesses ,setGuesses] = useState([]);
+    const [guesses ,setGuesses] = useState([...Array(6)]);
     const [history ,setHistory] = useState([]);
 
     //adds letter to the currentGuess state
@@ -18,7 +18,7 @@ const useVerble = (solution) => {
         }
 
         if(key === 'Enter'){
-            if(turn >= 5) {
+            if(turn >= 6) {
                 console.log('All guesses used');
                 return;
             }
@@ -31,21 +31,6 @@ const useVerble = (solution) => {
                 return;
             }
             formatGuess()
-        }
-    }
-
-    //adds a new guess to the guesses state
-    function addGuess(guess){
-        console.log('solution ',solution, 'vs guess' , currentGuess)
-        if(currentGuess === solution.join('')){
-            setIsCorrect(true)
-        }
-        else {
-            setGuesses(prev=> {
-                return [...prev, guess]
-            })
-            setTurn(prev=> prev+1);
-            setCurrentGuess('');
         }
     }
 
@@ -71,6 +56,24 @@ const useVerble = (solution) => {
         addGuess(formatGuess);
         return formatGuess;
     }
+
+    //adds a new guess to the guesses state
+    function addGuess(guess){
+        console.log('solution ',solution, 'vs guess' , currentGuess)
+        if(currentGuess === solution.join('')){
+            setIsCorrect(true)
+        }
+        else {
+            setGuesses(prev=> {
+                let guessArrays= [...prev];
+                guessArrays[turn]= guess;
+                return guessArrays;
+            })
+            setTurn(prev=> prev+1);
+            setCurrentGuess('');
+        }
+    }
+
     return { turn, isCorrect, currentGuess, guesses, letterChoice}
 
 }

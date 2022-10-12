@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import useVerble from "../hooks/useVerble"
+import Grid from "./Grid"
 const Words = ({ solution }) => {
   const { currentGuess, letterChoice, turn, isCorrect, guesses } = useVerble(solution)
 
@@ -13,8 +14,9 @@ const Words = ({ solution }) => {
   }, [guesses, turn, isCorrect])
     return (
       <div>
-        <div>{guesses.length>= 1 && guesses.map((elem,i)=> <p key={i}>{elem.map(item=>item.key)}</p>)}</div>
         <p>{currentGuess}</p>
+        < Grid currentGuess={currentGuess} guesses={guesses} turn={turn}/>
+
         </div>
   )
 }
