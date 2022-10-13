@@ -41,16 +41,78 @@ main{
         font-weight: bold;
         font-size: 4.4rem;
     }
+
+    >div:nth-child(2){
+        animation-delay: 0.3s;
+    }
+    >div:nth-child(3){
+        animation-delay: 0.6s;
+    }
+    >div:nth-child(4){
+        animation-delay: 0.9s;
+    }
+    >div:nth-child(5){
+        animation-delay: 1.2s;
+    }
     .yellow{
-        background-color: #ead36e;
-        border-color: #ead36e;
+        --guess: #ead36e;
+        animation: spin 0.5s ease forwards;
     }
     .green{
-        background-color: #52ab52;
-        border-color: #52ab52;;
+        --guess: #52ab52;
+        animation: spin 0.5s ease forwards;
     }
     .grey{
-        background-color: #a1a1a1;
-        border-color: #a1a1a1;
+        --guess: #a1a1a1;
+        animation: spin 0.5s ease forwards;
+    }
+
+    
+}
+
+
+.rows.current >.filled{
+    animation: type 0.2s ease-in-out forwards;
+}
+
+@keyframes spin {
+    0%{
+        background: #fff;
+        border-color: #bbb;
+        transform: rotateX(0);
+    }
+    47%{
+        background: #fff;
+        border-color: #bbb;
+        transform: rotateX(90deg);
+    }
+    52%{
+        transform: rotateX(90deg);
+        background: var(--guess);
+        border-color: var(--guess);
+        color: #fff;
+    }
+    100%{
+        transform: rotateX(0);
+        background: var(--guess);
+        border-color: var(--guess);
+        color: #fff;
+    }
+}
+
+@keyframes type {
+    0%{
+        transform: scale(1);
+        border: 1px solid #bbb;
+    }
+    50%{
+        transform: scale(1.3);
+        border: 1px solid #bbb;
+    }
+    100%{
+        transform: scale(1);
+        border: 1px solid #333;
+
+
     }
 }

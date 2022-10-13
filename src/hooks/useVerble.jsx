@@ -9,6 +9,7 @@ const useVerble = (solution) => {
 
     //adds letter to the currentGuess state
     function letterChoice({key}){
+        if(isCorrect === true) return;
         const alphaRegex = /^[a-z]$/gi;
         if(alphaRegex.test(key) && currentGuess.length<5){
             setCurrentGuess(prev=> prev+key.toUpperCase());
@@ -62,16 +63,16 @@ const useVerble = (solution) => {
         console.log('solution ',solution, 'vs guess' , currentGuess)
         if(currentGuess === solution.join('')){
             setIsCorrect(true)
+            console.log('done')
         }
-        else {
-            setGuesses(prev=> {
-                let guessArrays= [...prev];
-                guessArrays[turn]= guess;
-                return guessArrays;
-            })
-            setTurn(prev=> prev+1);
-            setCurrentGuess('');
-        }
+        setGuesses(prev=> {
+            let guessArrays= [...prev];
+            guessArrays[turn]= guess;
+            return guessArrays;
+        })
+        setTurn(prev=> prev+1);
+        setCurrentGuess('');
+        console.log(isCorrect)
     }
 
     return { turn, isCorrect, currentGuess, guesses, letterChoice}
