@@ -75,6 +75,23 @@ main{
     animation: type 0.2s ease-in-out forwards;
 }
 
+.keyboard{
+    max-width: 45rem;
+    margin: 2rem auto;
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+.keyboard > button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    border-radius: 5px;
+}
+
+
 @keyframes spin {
     0%{
         background: #fff;
