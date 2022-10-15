@@ -20,7 +20,7 @@ const useVerble = (solution) => {
         }
 
         if(key === 'Enter'){
-            if(turn >= 6) {
+            if(turn >5) {
                 return;
             }
             if(history.includes(currentGuess)){

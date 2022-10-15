@@ -116,6 +116,59 @@ main{
 }
 
 
+//modal for final result
+
+.final-score{
+    background-color: #a1a1a1ae;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+
+
+    >div{
+        background-color: #ebe6e6eb;
+        border-radius: 1rem;
+        text-align: center;
+        box-shadow: 7px 5px 6px rgb(163, 160, 160);
+        padding: 2rem 5rem 2rem 5rem;
+        margin: 1rem auto;
+        width: 90%;
+        height: 30rem;
+
+        h2{
+            line-height: 3.5rem;
+        }
+
+        hr{
+            display: inline-block;
+            border: .5px solid rgba(191, 188, 188, 0.738);
+            width: 100%;
+            margin: 1rem;
+        }
+    }
+
+    @media only screen and (min-width: 550px) {
+        >div{
+            width: 50rem;
+            height: 30rem;
+        }
+      }
+    
+    @media only screen and (max-width: 300px) {
+    >div{
+        height: 37rem;
+        }
+    }
+
+}
+
 @keyframes spin {
     0%{
         background: #fff;
