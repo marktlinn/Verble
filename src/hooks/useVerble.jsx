@@ -6,6 +6,7 @@ const useVerble = (solution) => {
     const [currentGuess ,setCurrentGuess] = useState('');
     const [guesses ,setGuesses] = useState([...Array(6)]);
     const [history ,setHistory] = useState([]);
+    const [keysUsed, setKeysUsed] = useState({});
 
     //adds letter to the currentGuess state
     function letterChoice({key}){
@@ -20,15 +21,12 @@ const useVerble = (solution) => {
 
         if(key === 'Enter'){
             if(turn >= 6) {
-                console.log('All guesses used');
                 return;
             }
             if(history.includes(currentGuess)){
-                console.log('That guess has already been used');
                 return;
             }
             if(currentGuess.length<5){
-                console.log('Guess must be a 5 letter word');
                 return;
             }
             formatGuess()
@@ -47,11 +45,9 @@ const useVerble = (solution) => {
         formatGuess.forEach((elem,index)=> {
             if(solution[index] === elem.key){
                 formatGuess[index].colour = 'green';
-                console.log("it's here, hurrah", elem.key);
             }
             else if(solution.includes(elem.key) && elem[index] !== 'green'){
                 formatGuess[index].colour = 'yellow'
-                console.log("close but no cigar", elem.key);
             }
         })
         addGuess(formatGuess);
@@ -60,10 +56,8 @@ const useVerble = (solution) => {
 
     //adds a new guess to the guesses state
     function addGuess(guess){
-        console.log('solution ',solution, 'vs guess' , currentGuess)
         if(currentGuess === solution.join('')){
             setIsCorrect(true)
-            console.log('done')
         }
         setGuesses(prev=> {
             let guessArrays= [...prev];
@@ -71,11 +65,30 @@ const useVerble = (solution) => {
             return guessArrays;
         })
         setTurn(prev=> prev+1);
+
+        setKeysUsed(prev=> {
+            let keys = {...prev};
+            guess.forEach(letter=> {
+                const currColour = keys[letter.key];
+                if(letter.colour === 'green'){
+                    keys[letter.key] = 'green'
+                    return;
+                }
+                if(letter.colour === 'yellow' && currColour !== 'green'){
+                    keys[letter.key] = 'yellow'
+                    return;
+                }
+                if(letter.colour === 'grey' && currColour !== 'green' && currColour !== 'yellow'){
+                    keys[letter.key] = 'grey';
+                    return;
+                }
+            });
+            return keys;
+        });
         setCurrentGuess('');
-        console.log(isCorrect)
     }
 
-    return { turn, isCorrect, currentGuess, guesses, letterChoice}
+    return { turn, isCorrect, currentGuess, guesses, letterChoice, keysUsed }
 
 }
 

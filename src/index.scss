@@ -76,19 +76,43 @@ main{
 }
 
 .keyboard{
-    max-width: 45rem;
+    max-width: 30rem;
+    max-height: 18rem;
     margin: 2rem auto;
-    display: grid;
-    gap: .5rem;
-    grid-template-columns: repeat(10, 1fr);
-}
-
-.keyboard > button{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    height: 3rem;
-    border-radius: 5px;
+    gap: .7rem;
+    // grid-template-columns: repeat(10, 1fr);
+
+    >button{
+        display: flex;
+        min-width: 3rem;
+        align-items: center;
+        justify-content: center;
+        height: 3rem;
+        border: #FFF;
+        border-radius: 5px;
+    }
+
+    .green{
+        background: #52ab52;
+        color: #fff;
+        transition: all 0.3s ease-in;
+    }
+
+    .yellow{
+        background: #ead36e;
+        color: #fff;
+        transition: all 0.3s ease-in;
+    }
+
+    .grey{
+        background: #a1a1a1;
+        color: #fff;
+        transition: all 0.3s ease-in;
+    }
 }
 
 
