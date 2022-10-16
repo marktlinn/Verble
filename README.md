@@ -22,7 +22,7 @@ But anyone wanting to use such an API on their own machines can do so easily. Th
 ## Optimizations
 There's plenty of space for further optimizations: 
 <br/>
-[ ] - Add functionality to the buttons: add event listeners to the buttons so that when clicked they trigger the letter input.
+✅ DONE - Add functionality to the buttons: add event listeners to the buttons so that when clicked they trigger the letter input.
 <br/>
 [ ] - Add localstorage of scores, and display previous results over the last few days, and perhaps an average number of attempts before the correct answer is found.
 <br/>
