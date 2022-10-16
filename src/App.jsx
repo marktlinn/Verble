@@ -9,7 +9,7 @@ import Words from './components/Words';
 
 function App() {
   // Set word for dev environment:
-  const word = 'words'.toUpperCase().split('')
+  const word = 'amore'.toUpperCase().split('')
 
   // Api Fetch for word to be set into state for production
   // const { response:word, error, isLoading } = useFetch()
@@ -17,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <main>
+        <h2 className='title'>Verble</h2>
         {/* {isLoading? <Loading /> : <h1>{word}</h1>} */}
         <h1>{word? < Words solution={word} /> : <Loading/>}</h1>
       </main>

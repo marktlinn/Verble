@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 :root {
-    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', Avenir, Helvetica, Arial, sans-serif;
     font-size: 62.5%;
     line-height: 24px;
     font-weight: 400;
@@ -15,13 +17,20 @@ text-decoration: none;
 body {
 margin: 0;
 }
-  
 
 main{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+    .title{
+        font-weight: 700;
+        font-size: 4rem;
+        margin-bottom: 0;
+        padding-top: 1rem;
+    }
 }
 
 .rows{
@@ -130,7 +139,7 @@ main{
     bottom: 0;
     align-items: center;
     justify-content: center;
-
+    animation: fadeIn 0.4s ease-in forwards;
 
     >div{
         background-color: #ebe6e6eb;
@@ -208,5 +217,17 @@ main{
         border: 1px solid #333;
 
 
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
     }
 }
