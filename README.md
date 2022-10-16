@@ -5,8 +5,8 @@ Wordle App clone using the Wordle API hosted by RapidAPI, built in React using S
 **Link to project:** https://verble.netlify.app/
 
 **Project screenshots**:
-<img width="1371" alt="Screenshot 2022-10-16 at 12 51 17" src="https://user-images.githubusercontent.com/88390425/196031315-37a19733-8224-4bf6-be13-e9d38a2ce554.png">
-<img width="1433" alt="Screenshot 2022-10-16 at 12 48 57" src="https://user-images.githubusercontent.com/88390425/196031319-7b2ff6bc-da2b-44ce-aa28-af91b5d57bb3.png">
+<img width="1436" alt="Screenshot 2022-10-16 at 21 34 31" src="https://user-images.githubusercontent.com/88390425/196054523-46baf61b-379e-449a-a5d1-9b8b40037c05.png">
+<img width="1439" alt="Screenshot 2022-10-16 at 21 35 08" src="https://user-images.githubusercontent.com/88390425/196054526-18a5f2a1-eeb0-4042-9e7a-cde68d5b5868.png">
 
 
 
