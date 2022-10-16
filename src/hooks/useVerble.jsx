@@ -10,6 +10,12 @@ const useVerble = (solution) => {
 
     //adds letter to the currentGuess state
     function letterChoice({key}){
+        if(key === 'ENTER'){
+            key = 'Enter'
+        }
+        if(key === '«'){
+            key = 'Backspace'
+        }
         if(isCorrect === true) return;
         const alphaRegex = /^[a-z]$/gi;
         if(alphaRegex.test(key) && currentGuess.length<5){

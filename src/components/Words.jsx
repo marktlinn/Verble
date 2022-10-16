@@ -33,7 +33,7 @@ const Words = ({ solution }) => {
     return (
       <div>
         < Grid currentGuess={currentGuess} guesses={guesses} turn={turn}/>
-        < Keyboard  keysUsed={keysUsed} />
+        < Keyboard letterChoice={letterChoice} keysUsed={keysUsed} />
         {gameOver && < Finale turn={turn} isCorrect={isCorrect} solution={solution}/>}
       </div>
   )
