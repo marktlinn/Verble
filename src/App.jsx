@@ -6,10 +6,11 @@ import useFetch from './hooks/useFetch';
 //components:
 import Loading from './components/Loading';
 import Words from './components/Words';
+import Footer from './components/Footer';
 
 function App() {
   // Set word for dev environment:
-  const word = 'amore'.toUpperCase().split('')
+  const word = 'react'.toUpperCase().split('')
 
   // Api Fetch for word to be set into state for production
   // const { response:word, error, isLoading } = useFetch()
@@ -21,6 +22,7 @@ function App() {
         {/* {isLoading? <Loading /> : <h1>{word}</h1>} */}
         <h1>{word? < Words solution={word} /> : <Loading/>}</h1>
       </main>
+      <Footer/>
     </div>
   )
 }
