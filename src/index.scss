@@ -90,19 +90,20 @@ main{
 
     .keyrow{
         display: flex;
-        gap: 3px;
-        margin: 3px;
+        gap: 5px;
+        margin: 5px;
     }
 
     button{
         display: flex;
-        min-width: 4rem;
+        min-width: 3rem;
         align-items: center;
         padding: 1rem;
         justify-content: center;
         height: 4rem;
         color: #000;
         font-weight: 700;
+        font-size: 1.5rem;
         border: 1px solid rgb(197, 195, 195);
         border-radius: 5px;
     }
