@@ -98,9 +98,12 @@ main{
         display: flex;
         min-width: 3rem;
         align-items: center;
+        padding: 1rem;
         justify-content: center;
         height: 3rem;
-        border: #FFF;
+        color: #000;
+        font-weight: 700;
+        border: 1px solid rgb(197, 195, 195);
         border-radius: 5px;
     }
 
