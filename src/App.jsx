@@ -8,17 +8,29 @@ import Loading from './components/Loading';
 import Words from './components/Words';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
+import MenuBar from './components/MenuBar';
+import StatsBar from './components/StatsBar';
 function App() {
   // Set word for dev environment:
   const word = 'react'.toUpperCase().split('')
-
+  const [menuActive, setMenuActive] = useState(true);
+  const [statsActive, setStatsActive] = useState(true);
   // Api Fetch for word to be set into state for production
   // const { response:word, error, isLoading } = useFetch()
-
+  console.log('menuActive?', menuActive, 'statsActive?', statsActive)
   return (
     <div className="App">
-      < Nav />
+      <Nav 
+        menuActive={menuActive}
+        setMenuActive={setMenuActive}
+        statsActive={statsActive}
+        setStatsActive={setStatsActive}
+      />
       <main>
+      {menuActive && <MenuBar />}
+      {statsActive && <StatsBar
+      setStatsActive={setStatsActive}
+       />}
         {/* {isLoading? <Loading /> : <h1>{word}</h1>} */}
         <h1>{word? < Words solution={word} /> : <Loading/>}</h1>
       </main>
