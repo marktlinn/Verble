@@ -7,7 +7,7 @@ import useFetch from './hooks/useFetch';
 import Loading from './components/Loading';
 import Words from './components/Words';
 import Footer from './components/Footer';
-
+import Nav from './components/Nav';
 function App() {
   // Set word for dev environment:
   const word = 'react'.toUpperCase().split('')
@@ -17,8 +17,8 @@ function App() {
 
   return (
     <div className="App">
+      < Nav />
       <main>
-        <h2 className='title'>Verble</h2>
         {/* {isLoading? <Loading /> : <h1>{word}</h1>} */}
         <h1>{word? < Words solution={word} /> : <Loading/>}</h1>
       </main>
