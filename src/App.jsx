@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 //hooks
 import useFetch from './hooks/useFetch';
@@ -13,8 +13,8 @@ import StatsBar from './components/StatsBar';
 function App() {
   // Set word for dev environment:
   const word = 'react'.toUpperCase().split('')
-  const [menuActive, setMenuActive] = useState(true);
-  const [statsActive, setStatsActive] = useState(true);
+  const [menuActive, setMenuActive] = useState(false);
+  const [statsActive, setStatsActive] = useState(false);
   // Api Fetch for word to be set into state for production
   // const { response:word, error, isLoading } = useFetch()
   console.log('menuActive?', menuActive, 'statsActive?', statsActive)
