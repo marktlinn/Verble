@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import {faBars, faChartSimple } from '@fortawesome/free-solid-svg-icons';
-
+import { useEffect } from 'react';
 const Nav = ({menuActive,setMenuActive,statsActive,setStatsActive}) => {
   const handleMenu = () => {
     setMenuActive(prev=> !prev);
@@ -8,6 +8,15 @@ const Nav = ({menuActive,setMenuActive,statsActive,setStatsActive}) => {
   const handleStats = () => {
     setStatsActive(prev=> !prev);
   }
+  useEffect(() => {
+    if(statsActive){
+      document.body.style.overflow = 'hidden';
+    } 
+    else if (!statsActive){
+      document.body.style.overflow = 'unset';
+    }
+  }, [statsActive]);
+
 
   return (
     <nav>
