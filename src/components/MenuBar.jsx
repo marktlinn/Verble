@@ -1,8 +1,8 @@
 import React from 'react'
 
-const MenuBar = () => {
+const MenuBar = ({menuActive}) => {
   return (
-    <div className='menu-slide-nav'>
+    <div className={menuActive ? "menu-slide-nav" : "menu-slide-closed"}>
         <h3>Other Games I've Created</h3>
 
         <a href="#">game 1</a>

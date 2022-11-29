@@ -27,7 +27,7 @@ function App() {
         setStatsActive={setStatsActive}
       />
       <main>
-      {menuActive && <MenuBar />}
+      {<MenuBar menuActive={menuActive}/>}
       {statsActive && <StatsBar
       setStatsActive={setStatsActive}
        />}

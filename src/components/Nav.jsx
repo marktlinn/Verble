@@ -9,17 +9,18 @@ const Nav = ({menuActive,setMenuActive,statsActive,setStatsActive}) => {
     setStatsActive(prev=> !prev);
   }
   useEffect(() => {
-    if(statsActive){
+    if(statsActive || menuActive){
       document.body.style.overflow = 'hidden';
     } 
-    else if (!statsActive){
+    else if (!statsActive && !menuActive){
       document.body.style.overflow = 'unset';
     }
-  }, [statsActive]);
+  }, [statsActive, menuActive]);
 
 
   return (
     <nav>
+      <div className='nav-container'>
         <FontAwesomeIcon 
             className='menu-bar' 
             icon={faBars}
@@ -31,6 +32,7 @@ const Nav = ({menuActive,setMenuActive,statsActive,setStatsActive}) => {
             icon={faChartSimple}
             onClick={handleStats}
         ></FontAwesomeIcon>
+      </div>
     </nav>
   )
 }
