@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Footer from './Footer'
 const MenuBar = ({menuActive}) => {
   return (
     <div className={menuActive ? "menu-slide-nav" : "menu-slide-closed"}>
@@ -7,7 +7,9 @@ const MenuBar = ({menuActive}) => {
 
         <a href="#">game 1</a>
         <a href="#">game 2</a>
-
+        <div className="slide-footer">
+      <Footer/>
+      </div>
     </div>
   )
 }

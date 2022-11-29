@@ -3,9 +3,11 @@ import {faBars, faChartSimple } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 const Nav = ({menuActive,setMenuActive,statsActive,setStatsActive}) => {
   const handleMenu = () => {
+    setStatsActive(false);
     setMenuActive(prev=> !prev);
   }  
   const handleStats = () => {
+    setMenuActive(false);
     setStatsActive(prev=> !prev);
   }
   useEffect(() => {
