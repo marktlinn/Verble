@@ -302,6 +302,7 @@ footer{
     background:rgba(227, 225, 225, 0.693);
     color: white;
     height: 100%;
+    z-index: 2;
 
     .stats-card{
         display: flex;
