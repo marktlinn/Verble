@@ -30,6 +30,15 @@ const Words = ({ solution }) => {
     return () => window.removeEventListener('keyup', letterChoice);
   }, [letterChoice, isCorrect, turn])
 
+  useEffect(() => {
+    if(gameOver){
+      document.body.style.overflow = 'hidden';
+    } 
+    else if (!gameOver){
+      document.body.style.overflow = 'unset';
+    }
+  }, [gameOver]);
+
     return (
       <div>
         < Grid currentGuess={currentGuess} guesses={guesses} turn={turn}/>

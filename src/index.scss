@@ -17,20 +17,41 @@ text-decoration: none;
 body {
 margin: 0;
 }
+nav{
+    width: 100%;
+    border-bottom: solid 1px rgb(163, 163, 163);
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    // z-index: 1;
+}
+
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 2rem;
+    font-size: 2rem;
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    gap: 1.5rem;
+    @media screen and (min-width: 500px){
+        .menu-bar{
+            margin-right: auto;
+        }
+    }
+    .menu-chart{
+        margin-left: auto;
+    }
+}
 
 main{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height:90vh;
-
-    .title{
-        font-weight: 700;
-        font-size: 4rem;
-        margin-bottom: 0;
-        padding-top: 1rem;
-    }
+    padding-top: 2rem;
 }
 
 .rows{
@@ -42,13 +63,28 @@ main{
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 6rem;
-        height: 6rem;
+        width: 4rem;
+        height: 4rem;
         border: .5px solid #bbb;
         border-radius: 4px;
         margin: .5rem;
         font-weight: bold;
         font-size: 4.4rem;
+        
+    }
+    @media screen and (min-width: 400px){
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 6rem;
+            height: 6rem;
+            border: .5px solid #bbb;
+            border-radius: 4px;
+            margin: .5rem;
+            font-weight: bold;
+            font-size: 4.4rem;
+        }
     }
 
     >div:nth-child(2){
@@ -95,16 +131,31 @@ main{
 
     button{
         display: flex;
-        min-width: 3rem;
+        width: 2rem;
         align-items: center;
         padding: 1rem;
         justify-content: center;
-        height: 4rem;
+        height: 3rem;
         color: #000;
         font-weight: 700;
-        // font-size: 1.5rem;
         border: 1px solid rgb(197, 195, 195);
         border-radius: 5px;
+    }
+    #ENTER{
+        width: 5.5rem;
+    }
+    @media screen and (min-width: 400px){
+        button{
+            width: 3rem;
+            height: 4rem;
+            font-size: 1.5rem;
+
+        }
+        #ENTER{
+            width: 6rem;
+            font-size: 1.5rem;
+
+        }
     }
 
     .green{
@@ -180,7 +231,9 @@ main{
 }
 
 footer{
-    padding: 2rem;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 2rem;
     margin:auto;
     color:#696767ae;
     .profile-tags{
@@ -188,6 +241,124 @@ footer{
         align-items: center;
         gap: 1rem;
         font-size: 1.8rem;
+    }
+}
+
+//Menu and stats bars
+
+.menu-slide-nav{
+    position: fixed;
+    left: 0;
+    top: 6rem;
+    padding: 2rem 3rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    background:rgb(186, 185, 185);
+    color: white;
+    height: 100%;
+    width: 49.5%;
+    max-width: 35rem;
+    animation: slideIn .25s ease-in forwards;
+}
+
+.menu-slide-closed{
+    display: none;
+    position: fixed;
+    left: -100%;
+    top: 6rem;
+    padding: 2rem 3rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    background:rgb(186, 185, 185);
+    height: 100%;
+    width: 49.5%;
+    max-width: 35rem;
+    transition: 1s;
+}
+
+.slide-footer{
+    position: absolute;
+    bottom: 7rem;
+    left: 0;
+    footer>*{
+        color:#fff;
+    }
+    .profile-tags>*:hover{
+        color: rgb(150, 149, 149);
+    }
+}
+
+.stats-slide-nav{
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    // top: 6.01rem;
+    width: 100%;
+    // padding: 2rem 3rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:rgba(227, 225, 225, 0.693);
+    color: white;
+    height: 100%;
+
+    .stats-card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        max-width: 100%;
+        background:rgba(100, 82, 82, 0.693);
+        border: none;
+        border-radius: 1rem;
+        padding: 2rem;
+        top: 6.01rem;
+        height: 70%;
+        width: 95%;
+        max-width: 600px;
+    }
+    .stats-card>h3{
+        font-size: 2rem;
+    }
+    .stats-exit{
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+    .stats-list{
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        font-size: 1.5rem;
+    }
+    .stat-item-pair{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .stats-hr{
+        width: 80%;
+        margin: 2rem 0;
+        border-color: #fff;
+    }
+    .stats-clear{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.4rem;
+    }
+    .stats-clear>button{
+        padding: .5rem 1rem;
+        background:#333;
+        border: none;
+        border-radius: .5rem;
+        color: #fff;
+    }
+    .stats-clear>button:hover{
+        font-weight: 700;
+        background:rgb(49, 48, 48);
     }
 }
 
@@ -240,5 +411,15 @@ footer{
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+
+    0% {
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0rem);
     }
 }
