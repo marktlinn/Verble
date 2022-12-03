@@ -13,6 +13,7 @@ const Words = ({ solution }) => {
     useVerble(solution);
   const [gameOver, setGameOver] = useState(false);
 
+  //Set streak status when game completed with correct answer
   const setStorage = item => {
     let currentScore = JSON.parse(localStorage.getItem(item));
     console.log("inStrorage =", currentScore);
@@ -23,6 +24,16 @@ const Words = ({ solution }) => {
     }
     console.log("changes storage: ", currentScore);
     localStorage.setItem(item, JSON.stringify(currentScore));
+  };
+
+  // Set streak status to zero when game failed
+  const removeLocalStorageItem = item => {
+    let currentScore = JSON.parse(localStorage.getItem(item));
+    console.log("update Storage =", currentScore);
+    if (currentScore !== null) {
+      console.log("changes storage: ", currentScore);
+      localStorage.removeItem(item);
+    }
   };
 
   useEffect(() => {
@@ -36,6 +47,7 @@ const Words = ({ solution }) => {
     if (turn > 5) {
       window.removeEventListener("keyup", letterChoice);
       setTimeout(() => {
+        removeLocalStorageItem("currentStreak");
         setGameOver(true);
       }, 2000);
     }

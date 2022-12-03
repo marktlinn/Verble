@@ -1,13 +1,24 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import useLocalStorage from "../hooks/useLocalStorage";
+import useClearAllStorage from "../hooks/useClearAllStorage";
 const StatsBar = ({ setStatsActive }) => {
   const { played, currentStreak, maxStreak } = useLocalStorage();
+  const { clearAllStorage } = useClearAllStorage();
+  const [clearAllData, setClearAllData] = useState(false);
 
   const handleExit = () => {
     setStatsActive(false);
   };
+
+  useEffect(() => {
+    if (clearAllData) {
+      clearAllStorage();
+      setStatsActive(false);
+      setClearAllData(false);
+    }
+  }, [clearAllData]);
 
   return (
     <div className="stats-slide-nav">
@@ -45,7 +56,13 @@ const StatsBar = ({ setStatsActive }) => {
 
         <div className="stats-clear">
           <h3>Want to clear your data and start again?</h3>
-          <button>Clear</button>
+          <button
+            onClick={() => {
+              setClearAllData(true);
+            }}
+          >
+            Clear
+          </button>
         </div>
       </section>
     </div>
