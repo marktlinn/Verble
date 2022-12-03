@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { context } from "../hooks/Context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import useLocalStorage from "../hooks/useLocalStorage";
 import useClearAllStorage from "../hooks/useClearAllStorage";
-const StatsBar = ({ setStatsActive }) => {
+const StatsBar = () => {
+  const { setStatsActive } = useContext(context);
   const { played, currentStreak, maxStreak } = useLocalStorage();
   const { clearAllStorage } = useClearAllStorage();
   const [clearAllData, setClearAllData] = useState(false);

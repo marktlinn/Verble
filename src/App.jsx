@@ -1,42 +1,33 @@
-import { useState } from 'react';
-
 //hooks
-import useFetch from './hooks/useFetch';
+import useFetch from "./hooks/useFetch";
+import { useContext } from "react";
+import { context } from "./hooks/Context";
 
 //components:
-import Loading from './components/Loading';
-import Words from './components/Words';
-import Footer from './components/Footer';
-import Nav from './components/Nav';
-import MenuBar from './components/MenuBar';
-import StatsBar from './components/StatsBar';
+import Loading from "./components/Loading";
+import Words from "./components/Words";
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
+import MenuBar from "./components/MenuBar";
+import StatsBar from "./components/StatsBar";
 function App() {
+  const { statsActive } = useContext(context);
   // Set word for dev environment:
-  const word = 'react'.toUpperCase().split('')
-  const [menuActive, setMenuActive] = useState(false);
-  const [statsActive, setStatsActive] = useState(false);
+  const word = "react".toUpperCase().split("");
   // Api Fetch for word to be set into state for production
   // const { response:word, error, isLoading } = useFetch()
-  console.log('menuActive?', menuActive, 'statsActive?', statsActive)
   return (
     <div className="App">
-      <Nav 
-        menuActive={menuActive}
-        setMenuActive={setMenuActive}
-        statsActive={statsActive}
-        setStatsActive={setStatsActive}
-      />
+      <Nav />
       <main>
-      {<MenuBar menuActive={menuActive}/>}
-      {statsActive && <StatsBar
-      setStatsActive={setStatsActive}
-       />}
+        {<MenuBar />}
+        {statsActive && <StatsBar />}
         {/* {isLoading? <Loading /> : <h1>{word}</h1>} */}
-        <h1>{word? < Words solution={word} /> : <Loading/>}</h1>
+        <h1>{word ? <Words solution={word} /> : <Loading />}</h1>
       </main>
-      <Footer/>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
