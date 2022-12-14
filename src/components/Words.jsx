@@ -16,22 +16,26 @@ const Words = ({ solution }) => {
   //Set streak status when game completed with correct answer
   const setStorage = item => {
     let currentScore = JSON.parse(localStorage.getItem(item));
-    console.log("inStrorage =", currentScore);
-    if (currentScore === null) {
+    if (currentScore === 0) {
       currentScore = 1;
     } else {
       currentScore += 1;
     }
-    console.log("changes storage: ", currentScore);
     localStorage.setItem(item, JSON.stringify(currentScore));
+  };
+
+  const updateMaxStreak = (current, max) => {
+    let currentMaxStreak = JSON.parse(localStorage.getItem(max));
+    let currentStreak = JSON.parse(localStorage.getItem(current));
+    if (currentStreak > currentMaxStreak) {
+      localStorage.setItem(max, JSON.stringify(currentStreak));
+    } else return;
   };
 
   // Set streak status to zero when game failed
   const removeLocalStorageItem = item => {
     let currentScore = JSON.parse(localStorage.getItem(item));
-    console.log("update Storage =", currentScore);
     if (currentScore !== null) {
-      console.log("changes storage: ", currentScore);
       localStorage.removeItem(item);
     }
   };
@@ -47,18 +51,22 @@ const Words = ({ solution }) => {
     if (turn > 5) {
       window.removeEventListener("keyup", letterChoice);
       setTimeout(() => {
-        removeLocalStorageItem("currentStreak");
         setGameOver(true);
       }, 2000);
     }
     return () => window.removeEventListener("keyup", letterChoice);
-  }, [letterChoice, isCorrect, turn]);
+  }, [letterChoice, turn]);
 
   useEffect(() => {
     if (gameOver) {
-      document.body.style.overflow = "hidden";
-      setStorage("played");
-      setStorage("currentStreak");
+      if (isCorrect === true) {
+        document.body.style.overflow = "hidden";
+        setStorage("played");
+        setStorage("currentStreak");
+        updateMaxStreak("currentStreak", "maxStreak");
+      } else {
+        removeLocalStorageItem("currentStreak");
+      }
     } else if (!gameOver) {
       document.body.style.overflow = "unset";
     }

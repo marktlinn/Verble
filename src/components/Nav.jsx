@@ -6,7 +6,6 @@ import { context } from "../hooks/Context";
 const Nav = () => {
   const { menuActive, setMenuActive, statsActive, setStatsActive } =
     useContext(context);
-  console.log(menuActive);
   const handleMenu = () => {
     setStatsActive(false);
     setMenuActive(prev => !prev);

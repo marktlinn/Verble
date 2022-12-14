@@ -17,7 +17,7 @@ const useLocalStorage = () => {
   });
   const [maxStreak, setMaxStreak] = useState(() => {
     if (JSON.parse(localStorage.getItem("maxStreak"))) {
-      return JSON.parse(localStorage.getItem("currentStreak"));
+      return JSON.parse(localStorage.getItem("maxStreak"));
     } else {
       return 0;
     }
