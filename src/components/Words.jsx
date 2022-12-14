@@ -65,6 +65,7 @@ const Words = ({ solution }) => {
         setStorage("currentStreak");
         updateMaxStreak("currentStreak", "maxStreak");
       } else {
+        setStorage("played");
         removeLocalStorageItem("currentStreak");
       }
     } else if (!gameOver) {
