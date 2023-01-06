@@ -3,11 +3,14 @@ Wordle App clone using the Wordle API hosted by RapidAPI, built in React using S
 
 
 **Link to project:** https://verble.netlify.app/
-
-**Project screenshots**:
-<img width="1436" alt="Screenshot 2022-10-16 at 21 34 31" src="https://user-images.githubusercontent.com/88390425/196054523-46baf61b-379e-449a-a5d1-9b8b40037c05.png">
+<br/>
+<h3 align="center">Project screenshots</h3>
+<div align="center">
+<img align="center" src="https://user-images.githubusercontent.com/88390425/211005388-2fcfffaa-247d-41e5-9772-321cc6d1b31a.gif" width="300" height="500"/>
+<br/>
+<br/>
 <img width="1439" alt="Screenshot 2022-10-16 at 21 35 08" src="https://user-images.githubusercontent.com/88390425/196054526-18a5f2a1-eeb0-4042-9e7a-cde68d5b5868.png">
-
+</div>
 
 
 ## Key info:
@@ -24,7 +27,7 @@ There's plenty of space for further optimizations:
 <br/>
 ✅ DONE - Add functionality to the buttons: add event listeners to the buttons so that when clicked they trigger the letter input.
 <br/>
-[ ] - Add localstorage of scores, and display previous results over the last few days, and perhaps an average number of attempts before the correct answer is found.
+✅ - Add localstorage of scores, and display previous results over the last few days, and perhaps an average number of attempts before the correct answer is found.
 <br/>
 [ ] - Add colour theme toggle, so the user can toggle from a white background to dark theme
 <br/>
