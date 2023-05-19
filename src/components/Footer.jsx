@@ -11,7 +11,7 @@ const Footer = () => {
         </span>
       </div>
       <div className="profile-tags">
-        <a href="https://github.com/marksist300">
+        <a href="https://github.com/marktlinn">
           <FontAwesomeIcon icon={faGithub} />
         </a>
         <a href="https://twitter.com/marksist_300">
